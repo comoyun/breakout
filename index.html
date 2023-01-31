@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en" translate="no">
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Breakout!</title>
+        <meta name="description" content="Play breakout, an amazing 2D game!" />
+        <meta name="theme-color" content="orange" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Concert+One&display=swap"
+            rel="stylesheet"
+        />
+        <link rel="shortcut icon" href="./res/icon.png" />
+        <style>
+            *,
+            *::after,
+            *::before {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html,
+            body {
+                width: 100%;
+                height: 100vh;
+                background-color: #133;
+                overflow: hidden;
+                font-family: "Concert One", cursive;
+                font-size: 18px;
+                background: #F7B42C;
+            }
+
+            canvas {
+                border-radius: 4px;
+                position: absolute;
+                border: 4px dashed rgb(255, 220, 156);
+                border-radius: 5px;
+                left: 50%;
+                top: 50%;
+                transform: translate(-50%, -50%);
+                box-shadow: 3px 2px 6px rgba(0, 0, 0, 0.3);
+            }
+
+            .panel {
+                position: absolute;
+                bottom: 2%;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 300px;
+                height: 50px;
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .coin {
+                width: 50px;
+                height: 50px;
+                background-color: rgb(255, 183, 50);
+                border: 4px dashed rgb(255, 220, 156);
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+            .heart {
+                width: 50px;
+                height: 50px;
+                background: url("./res/heart.png");
+                background-position: center center;
+                background-repeat: no-repeat;
+                background-size: contain;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                color: white;
+                font-size: 18px;
+            }
+
+            #overlay {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: rgba(0, 0, 0, 0.9);
+                z-index: 999;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 10px;
+                color: white;
+            }
+
+            #overlay div {
+                width: 180px;
+                height: 40px;
+                border: 1px solid white;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                user-select: none;
+                box-shadow: 5px 5px 0px 0px rgb(200 200 200 / 40%);
+            }
+
+            #overlay div:active {
+                color: orange;
+                border-color: orange;
+                box-shadow: 5px 5px 0px 0px rgb(233, 146, 0.5);
+            }
+
+            #overlay p {
+                font-size: 15px;
+                margin-top: 15px;
+                color: rgb(202, 140, 24);
+            }
+
+            .orange {
+                color: rgb(255, 166, 0);
+            }
+
+            #subtitle {
+                color: rgb(202, 140, 24);
+                font-size: 18px;
+                margin-bottom: 8px;
+                color: white;
+            }
+        </style>
+        <link rel="stylesheet" href="./libs/duDialog/duDialog.css" />
+    </head>
+    <body>
+        <div class="panel">
+            <div class="coin" id="coin">0</div>
+            <div class="heart" id="heart">3</div>
+        </div>
+        <div id="overlay">
+            <h2 id="title" style="margin-bottom: 9px">
+                <span class="orange">Brick</span> Breaker!
+            </h2>
+            <span id="subtitle"></span>
+            <div id="start">Start</div>
+            <div id="how-to">How-to</div>
+            <div id="about">About</div>
+            <p>Developed by Khumoyun &lt;3</p>
+        </div>
+        <script src="./libs/duDialog/duDialog.js"></script>
+        <script src="./libs/gsap.js"></script>
+        <script src="./scripts/utils.js"></script>
+        <script src="./scripts/classes/Rect.js"></script>
+        <script src="./scripts/classes/Arc.js"></script>
+        <script src="./scripts/classes/Ball.js"></script>
+        <script src="./scripts/classes/Coin.js"></script>
+        <script src="./scripts/classes/Paddle.js"></script>
+        <script src="./scripts/classes/Brick.js"></script>
+        <script src="./scripts/classes/Fraction.js"></script>
+        <script src="./scripts/init.js"></script>
+        <script src="./scripts/breakout.js"></script>
+        <script src="./scripts/event_listeners.js"></script>
+    </body>
+</html>
