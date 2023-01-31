@@ -1,5 +1,5 @@
 # Play Breakout 🎮
-This is a classic game, Breakout, built with pure JavaScript. Uses [GSAP](https://greensock.com/gsap/) for smooth overlay displacement, and [duDialog](https://dmuy.github.io/duDialog/) to display popup boxes to the user. **Have fun playing and see how many levels you can complete!** 🎮🕹️
+This is a classic game, Breakout, built with pure JavaScript. Uses [GSAP](https://greensock.com/gsap/) for smooth overlay displacement, and [duDialog](https://dmuy.github.io/duDialog/) to display awesome popup boxes to the user. **Have fun playing and see how many levels you can complete!** 🎮🕹️
 
 |       |        |
 | ----- | ------ |
